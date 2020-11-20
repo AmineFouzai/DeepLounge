@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "140316693396",
+    "firebase_url": "https://deeplounge-104cd.firebaseio.com",
+    "project_id": "deeplounge-104cd",
+    "storage_bucket": "deeplounge-104cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140316693396:android:da585f37044e070a913581",
+        "android_client_info": {
+          "package_name": "com.example.DeepLounge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140316693396-08uhgbus4ds31mpn9f93usf95riu0a9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAo5LwyzZN4L4BGoAqrIq5wpYJJNIZtYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140316693396-08uhgbus4ds31mpn9f93usf95riu0a9l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
