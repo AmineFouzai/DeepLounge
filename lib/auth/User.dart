@@ -2,22 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:DeepLounge/auth/UserService.dart';
 import 'package:DeepLounge/screens/Home.dart';
 
-class User extends StatefulWidget {
-  User();
+class AppUser extends StatefulWidget {
+  AppUser();
 
   @override
-  _UserState createState() => _UserState();
+  _AppUserState createState() => _AppUserState();
 }
 
-class _UserState extends State<User> {
+class _AppUserState extends State<AppUser> {
   bool logedIn = false;
 
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
-
-  bool login(String email, String password) {
-    return false;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,30 +82,31 @@ class _UserState extends State<User> {
                         splashColor: Colors.green[200],
                         icon: Icon(Icons.arrow_forward),
                         onPressed: () async {
-                          AuthService(
+                          dynamic result = await AuthService(
                                   email: _emailController.text,
                                   password: _passwordController.text)
-                              .login();
+                              .logIn();
 
-                          login(_emailController.text,
-                                      _passwordController.text) ==
-                                  true
+                          result == true
                               ? setState(() {
                                   logedIn = true;
                                 })
-                              : Scaffold.of(context).showSnackBar(SnackBar(
-                                  backgroundColor: Colors.green[200],
-                                  content: Container(
-                                    child: Row(
+                              : Scaffold.of(context).showSnackBar(
+                                  SnackBar(
+                                    backgroundColor: Colors.red[200],
+                                    content: Container(
+                                        child: ListView(
+                                      shrinkWrap: true,
                                       children: <Widget>[
                                         Icon(Icons.error),
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
-                                          child: Text("User Dosent Existe"),
+                                          child: Text(result),
                                         ),
                                       ],
-                                    ),
-                                  )));
+                                    )),
+                                  ),
+                                );
                         },
                         label: Text("Login"))
                   ],

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
+import 'package:DeepLounge/screens/Home.dart';
 import 'package:DeepLounge/auth/User.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         seconds: 5,
         loaderColor: Colors.white,
         navigateAfterSeconds: SafeArea(
-          child: User(),
+          child: AppUser(),
         ),
       ),
     );

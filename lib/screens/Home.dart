@@ -1,3 +1,6 @@
+import 'package:DeepLounge/screens/Favourite.dart';
+import 'package:DeepLounge/screens/HomeContent.dart';
+import 'package:DeepLounge/screens/Settings.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -14,22 +17,16 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     _selectedScreen = [
-      Text(
-        "Home",
-        style: TextStyle(fontFamily: "Italianno"),
+      HomeContent(
+        title: "this is some title",
+        description: "this is some description",
       ),
       Text(
         "Map",
-        style: TextStyle(fontFamily: "Italianno"),
+        style: TextStyle(fontFamily: "Italianno", fontSize: 100),
       ),
-      Text(
-        "Favorite",
-        style: TextStyle(fontFamily: "Italianno"),
-      ),
-      Text(
-        "Settings",
-        style: TextStyle(fontFamily: "Italianno"),
-      ),
+      Favourite(),
+      Settings()
     ];
     super.initState();
   }
@@ -83,7 +80,7 @@ class _HomeState extends State<Home> {
                   backgroundColor: Colors.green[400]),
               BottomNavigationBarItem(
                   icon: Icon(Icons.favorite),
-                  label: "Favorite",
+                  label: "Favourite",
                   backgroundColor: Colors.green[400]),
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings_applications),
