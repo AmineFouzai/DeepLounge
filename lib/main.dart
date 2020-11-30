@@ -5,6 +5,8 @@ import 'package:DeepLounge/auth/User.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
+    // ErrorWidget.builder = (FlutterErrorDetails details) => Container();
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
