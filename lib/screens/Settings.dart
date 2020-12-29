@@ -89,7 +89,6 @@ class _SettingsSectionState extends State<SettingsSection> {
               break;
             case 'Logout':
               await AuthService().signOut(context);
-
               break;
           }
         },

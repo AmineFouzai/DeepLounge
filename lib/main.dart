@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'package:DeepLounge/screens/Home.dart';
 import 'package:DeepLounge/auth/User.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() async {
-    // ErrorWidget.builder = (FlutterErrorDetails details) => Container();
+  ErrorWidget.builder = (FlutterErrorDetails details) => SpinKitFadingCircle(
+        itemBuilder: (BuildContext context, int index) {
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              color: index.isEven ? Colors.red : Colors.green,
+            ),
+          );
+        },
+      );
+  // Container();
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

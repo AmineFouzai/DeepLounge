@@ -77,38 +77,81 @@ class _AppUserState extends State<AppUser> {
                     SizedBox(
                       height: 40,
                     ),
-                    FloatingActionButton.extended(
-                        backgroundColor: Colors.green[400],
-                        splashColor: Colors.green[200],
-                        icon: Icon(Icons.arrow_forward),
-                        onPressed: () async {
-                          dynamic result = await AuthService(
-                                  email: _emailController.text,
-                                  password: _passwordController.text)
-                              .logIn();
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        FloatingActionButton.extended(
+                            heroTag: Text("singup"),
+                            backgroundColor: Colors.green[400],
+                            splashColor: Colors.green[200],
+                            icon: Icon(Icons.arrow_forward),
+                            onPressed: () async {
+                              dynamic result = await AuthService(
+                                      email: _emailController.text,
+                                      password: _passwordController.text)
+                                  .logIn();
 
-                          result == true
-                              ? setState(() {
-                                  logedIn = true;
-                                })
-                              : Scaffold.of(context).showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: Colors.red[200],
-                                    content: Container(
-                                        child: ListView(
-                                      shrinkWrap: true,
-                                      children: <Widget>[
-                                        Icon(Icons.error),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(result),
-                                        ),
-                                      ],
-                                    )),
-                                  ),
-                                );
-                        },
-                        label: Text("Login"))
+                              result == true
+                                  ? setState(() {
+                                      logedIn = true;
+                                    })
+                                  : Scaffold.of(context).showSnackBar(
+                                      SnackBar(
+                                        backgroundColor: Colors.red[200],
+                                        content: Container(
+                                            child: ListView(
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            Icon(Icons.error),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(result),
+                                            ),
+                                          ],
+                                        )),
+                                      ),
+                                    );
+                            },
+                            label: Text("Login")),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        FloatingActionButton.extended(
+                            backgroundColor: Colors.green[400],
+                            splashColor: Colors.green[200],
+                            icon: Icon(Icons.arrow_circle_down),
+                            onPressed: () async {
+                              dynamic result = await AuthService(
+                                      email: _emailController.text,
+                                      password: _passwordController.text)
+                                  .signUp();
+
+                              result == true
+                                  ? setState(() {
+                                      logedIn = true;
+                                    })
+                                  : Scaffold.of(context).showSnackBar(
+                                      SnackBar(
+                                        backgroundColor: Colors.red[200],
+                                        content: Container(
+                                            child: ListView(
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            Icon(Icons.error),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(result),
+                                            ),
+                                          ],
+                                        )),
+                                      ),
+                                    );
+                            },
+                            label: Text("Signup"))
+                      ],
+                    ),
                   ],
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:DeepLounge/screens/Favourite.dart';
 import 'package:DeepLounge/screens/HomeContent.dart';
+import 'package:DeepLounge/screens/Map.dart';
 import 'package:DeepLounge/screens/Settings.dart';
 import 'package:flutter/material.dart';
 
@@ -21,10 +22,7 @@ class _HomeState extends State<Home> {
         title: "this is some title",
         description: "this is some description",
       ),
-      Text(
-        "Map",
-        style: TextStyle(fontFamily: "Italianno", fontSize: 100),
-      ),
+      MapSample(),
       Favourite(),
       Settings()
     ];
@@ -35,6 +33,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false, // set it to false
+
         appBar: AppBar(
           centerTitle: true,
           toolbarHeight: 80,
@@ -63,6 +64,7 @@ class _HomeState extends State<Home> {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
         ),
+        extendBodyBehindAppBar: true,
         body: Center(child: _selectedScreen[_selectedIndex]),
         bottomNavigationBar: BottomAppBar(
           color: Colors.amber[400],
